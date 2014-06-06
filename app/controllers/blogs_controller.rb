@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
+	#Blog editing
     @blogs = Blog.all
 
     respond_to do |format|
