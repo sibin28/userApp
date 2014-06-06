@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def create
+    #Testing post
     @blog = Blog.find(params[:blog_id])
     @post = @blog.posts.create(params[:post])
     if @post.save
