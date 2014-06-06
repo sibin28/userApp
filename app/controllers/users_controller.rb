@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+#Modified to test git hub
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Saved successfully"
