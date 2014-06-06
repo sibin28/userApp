@@ -2,7 +2,7 @@
 class CommentsController < ApplicationController
 
 def create
-	  #Testing....
+	  #Testing comments controller
  	  @blog = Blog.find(params[:blog_id])
 	  @post =Post.find(params[:post_id])
 	  @comment =@post.comments.create(params[:comment])
