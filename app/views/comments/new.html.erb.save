@@ -1,0 +1,10 @@
+<p>This is new.html.erb</p>
+<%= form_tag("/comments", method: "create") do %>
+   <div class="field">
+	  <%= label_tag(:q, "Commentor") %>
+	  <%= text_field_tag(:commentor) %></br>
+	  <%= label_tag(:q, "Comments") %>
+	  <%= text_area_tag(:comments) %></br>
+	  <%= submit_tag("Create Comment") %>
+<% end %>
+

@@ -1,0 +1,18 @@
+<p>Edit Comment</p>
+<hr/>
+ <%= form_for(@comment, :url => {:controller => 'comments', :action => 'update'}) do |f| %>
+ <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<p> Commentor: <%= f.text_field :commentor%> </p>
+<p> Comments:   <%= f.text_field :comments%> </p>
+<%= f.submit :Comment %>
+<% end %>
+</div>
+
+

@@ -1,0 +1,35 @@
+class CommentsController < ApplicationController
+ 
+ def create
+puts "Calling comments controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+ @blog = Blog.find(params[:blog_id])
+        @post =Post.find(params[:post_id])
+
+#@blog = Blog.all
+#puts "after blog#{@blog}"
+#  @abc = Blog.find(params[:blog_id])
+# puts "abc value is #{abc}"  
+
+  #   @comment = @post.comments.create(params[:comment])
+	#@blog = Blog.find(params[:blog_id])
+        #puts "Blog value issssssssss"
+#        @post = Post.find(params[:post_id])
+   #     puts "2222222"
+#Post.find(params[:id]).comments.create(params[:comment])
+
+       @comment =@post.comments.create(params[:comment])
+        #redirect_to comments_path(@comment)
+render "new"
+
+ end
+
+ def new 
+ @comment = Comment.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @blog }
+     end
+  end
+
+end

@@ -1,0 +1,19 @@
+<p>This is Posts edit page</p>
+ <%= form_for(@post, :url => {:controller => 'posts', :action => 'update'}) do |f| %>
+         <% if @post.errors.any? %>
+   	    <div id="error_explanation">
+     	     <% @post.errors.full_messages.each do |msg| %>
+       		 <li><%= msg %></li>
+     	     <% end %>
+     	     </ul>
+    	    </div>
+         <% end %>
+     <p> Title:</br> <%= f.text_field :title%> </p>
+     <p> Description:</br> <%= f.text_field :description%> </p>
+     <%= f.submit :Post %>
+ <% end %>
+
+
+
+
+

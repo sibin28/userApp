@@ -1,0 +1,23 @@
+<%= form_for(:post, :url => {:controller => 'posts', :action => 'create'}) do |f| %>
+<%#= debug @post.title %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title if !@post.blank? %><br />
+    <%= f.text_field :title, :value=> @post.title if !@post.blank? %>
+  </div>
+  <div class="field">
+    <%= f.label :description  if !@post.blank? %><br />
+    <%= f.text_area :description, :value=> @post.description if !@post.blank? %>
+  </div>
+  <div class="actions">
+    <%= f.submit  :Post %>
+  </div>
+<% end %>

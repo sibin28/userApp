@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Blog Title</th>
+    <td></td>
+    <th>Blog Desciption</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @blog.title %></td>
+    <td></td>
+    <td> <%= @blog.description %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<% @blog.posts.each do |post| %>
+   <table>
+      <tr>
+        <th>Post Title</th>
+        <th>Post Desciption</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+         <td><%= post.title %></td>
+         <td><%= post.description %></td>
+          <td><%=link_to "Edit", edit_blog_post_path(@blog,post)%>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><%= link_to 'Destroy', [@blog, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+   </table>
+  
+  <%=link_to "Add Comment", new_blog_post_comment_path(@blog,post)%> 
+
+  <%post.comments.each do |comment| %>
+    <table>
+      <tr>
+        <th>Commentor</th>
+        <th>Comments</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><%= comment.commentor %></td>
+        <td><%= comment.comments %></td>
+        <td><%= link_to 'Edit',  edit_blog_post_comment_path(@blog,post,comment) %>&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+        <td><%= link_to 'Destroy', [@blog, post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+    </table>
+    <hr/>
+<% end %>
+  <br/>
+  <br/>
+<%=link_to "Add Post", new_blog_post_path(@blog)%> 
+<br/> <br/>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

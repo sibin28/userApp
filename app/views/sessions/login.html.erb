@@ -1,0 +1,11 @@
+
+<div>
+<p id="notice"><%= notice %></p>
+		<h1>Log in</h1>
+		<hr/>
+	<%= form_tag(:controller =>"sessions", :action => "login_attempt") do %>
+		<p>Username:  <%= text_field_tag(:username) %></p>
+		<p>Password:  <%= password_field_tag :login_password %></p>
+		<p><%= submit_tag("Log in") %>&nbsp;&nbsp;<%=link_to "New User", :controller => "users", :action => "new"%></p>
+	<% end %>
+
